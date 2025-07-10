@@ -50,7 +50,7 @@ pub struct SentFileDetails {
 pub struct ReceiveFileDetails {
     pub file_id: uuid::Uuid,
     pub file_name: String,
-    pub file_size: i64,
+    pub expiration_date: chrono::DateTime<chrono::Utc>,
     pub sender_email: String,
     pub created_at: chrono::DateTime<chrono::Utc>,
 }
