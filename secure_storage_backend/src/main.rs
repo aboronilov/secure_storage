@@ -1,10 +1,10 @@
-use axum::{Router, routing::get};
+use axum::{Router};
 use dotenv::dotenv;
 use sqlx::postgres::PgPoolOptions;
 use tokio_cron_scheduler::{Job, JobScheduler};
 use tower_http::cors::{Any, CorsLayer};
 use tracing_subscriber::filter::LevelFilter;
-use std::net::TcpListener;
+
 
 use crate::{config::Config, db::{DBClient, UserExt}};
 
@@ -13,6 +13,7 @@ mod models;
 mod dto;
 mod error;
 mod db;
+mod utils;
 
 #[derive(Debug, Clone)]
 pub struct AppState {
