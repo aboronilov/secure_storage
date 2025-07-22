@@ -14,6 +14,7 @@ mod dto;
 mod error;
 mod db;
 mod utils;
+mod middleware;
 
 #[derive(Debug, Clone)]
 pub struct AppState {

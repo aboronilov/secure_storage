@@ -64,8 +64,8 @@ impl FilterUserDto {
             name: user.name.to_owned(),
             email: user.email.to_owned(),
             public_key: user.public_key.to_owned(),
-            created_at: user.created_at,
-            updated_at: user.updated_at,
+            created_at: user.created_at.unwrap_or_else(|| Utc::now()),
+            updated_at: user.updated_at.unwrap_or_else(|| Utc::now()),
         }
     }
 }
@@ -96,8 +96,8 @@ impl UserSendFileDto {
             file_id: file_data.file_id.to_string(),
             file_name: file_data.file_name.to_owned(),
             recipient_email: file_data.recipient_email.to_owned(),
-            expiration_date: file_data.expiration_date,
-            created_at: file_data.created_at,
+            expiration_date: file_data.expiration_date.unwrap_or_else(|| Utc::now()),
+            created_at: file_data.created_at.unwrap_or_else(|| Utc::now()),
         }
     }
 
@@ -129,8 +129,8 @@ impl UserReceiveFileDto {
             file_id: file_data.file_id.to_string(),
             file_name: file_data.file_name.to_owned(),
             sender_email: file_data.sender_email.to_owned(),
-            expiration_date: file_data.expiration_date,
-            created_at: file_data.created_at,
+            expiration_date: file_data.expiration_date.unwrap_or_else(|| Utc::now()),
+            created_at: file_data.created_at.unwrap_or_else(|| Utc::now()),
         }
     }
 
